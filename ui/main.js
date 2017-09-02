@@ -23,7 +23,10 @@ button.onclick = function(){
         
     };
     
+    //make requests
     
+    request.open('GET','http://shivamshekhar96.imad.hasura-app.io/counter',true);
+    request.send(null);
     
     
    
