@@ -9,5 +9,5 @@ var element = document.getElementById('main-text'
     
     var img = document.getElementById('madi');
     img.onclik = function() {
-        img.style.marginLeft = '100px';
+        img.style.marginLeft = '150px';
     };
