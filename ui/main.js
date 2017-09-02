@@ -7,7 +7,7 @@ var element = document.getElementById('main-text'
     
     //move the image
     
-    var img = document.getelementById('img');
+    var img = document.getElementById('img');
     img.onclik = function() {
         img.style.marginLeft = '100px';
     };
