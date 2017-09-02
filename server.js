@@ -6,11 +6,12 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
-    title : 'article one SS',
-    heading :'article one',
-    date :'sept 5',
-    content :`   <p>
+var articles = {
+    'article-one' :{
+     title : 'article one SS',
+     heading :'article one',
+     date :'sept 5,2016',
+     content :`   <p>
                     this is the content of my 2nd article.
                     this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.
                     
@@ -25,8 +26,26 @@ var articleOne = {
                     this is the content of my forst article.this is the ccle.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.this is the content of my forst article.
                     
                 </p>`
+    },
+    'article-two': {
+        title : 'article two SS',
+         heading :'article two',
+         date :'sept 10,2016',
+         content :`  
+         <p>
+                        this is the content of my 2nd article.
+          </p>`
+    },
+    'article-three': {
+        title : 'article three SS',
+         heading :'article three',
+         date :'sept 15,2016',
+         content :`  
+         <p>
+                        this is the content of my 3rd article.
+          </p>`
+    }
 };
-
 
 function createTemplate(data) {
     var title=data.title;
@@ -34,7 +53,7 @@ function createTemplate(data) {
     var date=data.date;
     var content=data.content;
     
-    var htmltemplate =`
+    var htmlTemplate =`
     <html>
     <head>
     <title>
@@ -64,21 +83,17 @@ function createTemplate(data) {
     
     </html>
     `;
-     return htmltemplate;
+     return htmlTemplate;
     }
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleOne));
-});
-
-app.get('/article-two', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+    //articleNmae == article-one
+    //articles[articleName] == content object for article one
+    var articleName = req.params.articleName;
+   res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
