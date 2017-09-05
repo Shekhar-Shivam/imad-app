@@ -23,13 +23,9 @@ button.onclick = function(){
         
     };
     
-    //make requests
-    
+    //make request
     request.open('GET','http://shivamshekhar96.imad.hasura-app.io/counter',true);
     request.send(null);
-    
-    
-   
 };
 
 //Submit name
@@ -43,7 +39,7 @@ submit.onclick = function () {
     //capture a list of names anfd render it as a list
     var names = ['name1','name2','name3','name4'];
     var list = '';
-    for(var i=0;i<names.length;i++)
+    for(var i=0; i< names.length; i++)
     {
         list +='<li>' + names[i] + '</li>'; 
         
