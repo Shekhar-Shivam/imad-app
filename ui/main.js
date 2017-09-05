@@ -32,10 +32,10 @@ button.onclick = function(){
    
 };
 
-//Submit names
+//Submit name
 
 var nameInput = document.getElementById('name');
-var nameS = nameInput.value;
+var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
     //make a request to server and get the name
@@ -43,7 +43,7 @@ submit.onclick = function () {
     //capture a list of names anfd render it as a list
     var names = ['name1','name2','name3','name4'];
     var list = '';
-    for(var i=0;i<names.lenght;i++)
+    for(var i=0;i<names.length;i++)
     {
         list +='<li>' + names[i] + '</li>'; 
         
